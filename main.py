@@ -1,8 +1,10 @@
 #import webbrowser
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+import requests
+import os, os.path, csv
 
-url_to_scrape = "https://www.barnesandnoble.com/b/the-new-york-times-bestsellers-hardcover-nonfiction/_/N-1p5q"
+url_to_scrape = "https://www.northtownbooks.com/local-0"
 
 request_page = urlopen(url_to_scrape)
 page_html = request_page.read()
@@ -10,7 +12,7 @@ request_page.close()
 
 html_soup = BeautifulSoup(page_html, 'html.parser')
 
-ny_best_seller_items = html_soup.find_all('div', class_='row topX-row')
+northtown_local_book_items = html_soup.find_all('div', class_='abaproduct-content')
 
 filename = 'products.csv'
 f = open(filename, 'w')
@@ -19,9 +21,9 @@ headers = 'Title, Price \n'
 
 f.write(headers)
 
-for ny in ny_best_seller_items:
-    title = ny_best_seller.find('div', class_= 'col-lg-3 product-shelf-tile product-shelf-tile-book').text
-    price = ny_best_seller.find('div', class_= 'product-shelf-pricing mt-s mb-s').text
+for local_books in northtown_local_book_items:
+    title = northtown_local_book_items.find('div', class_= 'abaproduct-title').text
+    price = northtown_local_book_items.find('div', class_= 'abaproduct-price').text
 
 f.write(title + ',' + price)
 
