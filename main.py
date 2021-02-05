@@ -12,6 +12,7 @@ request_page.close()
 
 html_soup = BeautifulSoup(page_html, 'html.parser')
 
+#field_items
 northtown_local_book_items = html_soup.find_all('div', class_='abaproduct-content')
 
 filename = 'products.csv'
@@ -22,14 +23,13 @@ headers = 'Title, Price \n'
 f.write(headers)
 
 for local_books in northtown_local_book_items:
-    title = northtown_local_book_items.find('div', class_= 'abaproduct-title').text
-    price = northtown_local_book_items.find('div', class_= 'abaproduct-price').text
-
+    title = northtown_local_book_items.find('div', class_= "abaproduct-title").text
+    price = northtown_local_book_items.find('div', class_= "abaproduct-price").text
+    
 f.write(title + ',' + price)
 
 f.close()
-#url = 'http://docs.python.org/'
-#chrome_path = 'open -a /Applications/Google\ Chrome.app %s'
+
 
 #private email
 #webbrowser.open('https://mail.google.com/mail/u/0/#inbox')
