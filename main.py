@@ -15,7 +15,7 @@ html_soup = BeautifulSoup(page_html, 'html.parser')
 #field_items
 northtown_local_book_items = html_soup.find_all('div', class_='abaproduct-content')
 
-filename = 'products.csv'
+filename = 'project_script.csv'
 f = open(filename, 'w')
 
 headers = 'Title, Price \n'
@@ -23,8 +23,8 @@ headers = 'Title, Price \n'
 f.write(headers)
 
 for local_books in northtown_local_book_items:
-    title = northtown_local_book_items.find('div', class_= "abaproduct-title").text
-    price = northtown_local_book_items.find('div', class_= "abaproduct-price").text
+    title = local_books.find('div', class_= "abaproduct-title").text
+    price = local_books.find('div', class_= "abaproduct-price").text
     
 f.write(title + ',' + price)
 
