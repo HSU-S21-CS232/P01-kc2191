@@ -1,4 +1,4 @@
-#import webbrowser
+import webbrowser
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import requests
@@ -32,22 +32,22 @@ f.close()
 
 
 #private email
-#webbrowser.open('https://mail.google.com/mail/u/0/#inbox')
+webbrowser.open('https://mail.google.com/mail/u/0/#inbox')
 
 #school email
-#webbrowser.open('https://mail.google.com/mail/u/1/#inbox')
+webbrowser.open('https://mail.google.com/mail/u/1/#inbox')
 
 #proudmary coffee
-#webbrowser.open('https://proudmarycoffee.com/collections/all-coffee')
+webbrowser.open('https://proudmarycoffee.com/collections/all-coffee')
 
 #poetrycollection
-#webbrowser.open('https://drive.google.com/drive/u/0/folders/1qBe4SggQ-2syCERrBpL5QsRrLPgOoj-R')
+webbrowser.open('https://drive.google.com/drive/u/0/folders/1qBe4SggQ-2syCERrBpL5QsRrLPgOoj-R')
 
 #ufcnews
-#webbrowser.open('https://twitter.com/ufcnews?lang=en')
+webbrowser.open('https://twitter.com/ufcnews?lang=en')
 
 #canvas
-#webbrowser.open('https://canvas.humboldt.edu/')
+webbrowser.open('https://canvas.humboldt.edu/')
 
 
 
