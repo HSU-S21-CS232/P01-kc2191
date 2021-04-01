@@ -11,7 +11,7 @@ pygame.init()
 screen = pygame.display.set_mode((1000, 800))
 
 #background
-background = pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/background.jpg")
+background = pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/background.jpg").convert()
 
 
 #background sound
@@ -20,11 +20,11 @@ mixer.music.play(-1)
 
 # Title and Icon
 pygame.display.set_caption("Space Invaders!")
-icon = pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/planetsmall.png")
+icon = pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/planetsmall.png").convert()
 pygame.display.set_icon(icon)
 
 #player
-playerimg = pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/space-invaders.png")
+playerimg = pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/space-invaders.png").convert()
 playerX = 370
 playerY = 650
 playerX_change = 0
@@ -38,7 +38,7 @@ enemyY_change = []
 num_of_enemies = 6
 
 for i in range (num_of_enemies):
-    enemyimg.append(pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/devil.png"))
+    enemyimg.append(pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/devil.png").convert())
     enemyX.append(random.randint(0, 937))
     enemyY.append(random.randint(50, 150))
     enemyX_change.append(4)
@@ -47,7 +47,7 @@ for i in range (num_of_enemies):
 #bullet
 #ready = no bullet on screen
 #fire = the bullet is moving
-bulletimg = pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/gems.png")
+bulletimg = pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/gems.png").convert()
 bulletX = 0
 bulletY = 480
 bulletX_change = 0
@@ -172,7 +172,7 @@ while running:
     if bullet_state is "fire":
         fire_bullet(bulletX, bulletY)
         bulletY -= bulletY_change
-
+ 
     
 
     player(playerX, playerY)
@@ -183,3 +183,6 @@ while running:
     #i want the enemies to be more spread out
     #after getting 10 kills, i want to be teleported to a different location
     #i then want different enemies
+
+    #i still haven't added a sound for the collision
+    #i still haven't added a sound for the bullets
