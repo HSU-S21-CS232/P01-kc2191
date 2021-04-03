@@ -179,6 +179,8 @@ while running:
     show_score(textX, textY)
     pygame.display.update()   
 
+    
+
 
     #i want the enemies to be more spread out
     #after getting 10 kills, i want to be teleported to a different location
