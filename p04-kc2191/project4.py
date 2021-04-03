@@ -35,7 +35,7 @@ enemyX = []
 enemyY = []
 enemyX_change = []
 enemyY_change = []
-num_of_enemies = 6
+num_of_enemies = 5
 
 for i in range (num_of_enemies):
     enemyimg.append(pygame.image.load("/Users/kevinchung/KC2191/p04-kc2191/devil.png").convert())
@@ -69,8 +69,8 @@ def show_score(x,y):
     screen.blit(score, (x, y))
 
 def game_over_text():
-    over_text = over_font.render("TO THE NEXT DIMENSION : ", True, (255, 255, 255))
-    screen.blit(over_text, (200, 250))
+    over_text = over_font.render("TO THE NEXT DIMENSION", True, (255, 255, 255))
+    screen.blit(over_text, (100, 200))
 
 def player(x,y):
     screen.blit(playerimg, (x, y))
@@ -112,8 +112,8 @@ while running:
                 playerX_change = 5
             if event.key == pygame.K_SPACE:
                 if bullet_state is "ready":
-                    #bullet_Sound = mixer.Sound(file)
-                    #bullet_Sound.play()
+                    bullet_Sound = mixer.Sound('/Users/kevinchung/KC2191/p04-kc2191/laser.wav')
+                    bullet_Sound.play()
                     #this gets the current x-coordinate of the spaceship
                     bulletX = playerX
                     fire_bullet(bulletX, bulletY)
@@ -152,8 +152,8 @@ while running:
         #collision
         collision = iscollision(enemyX[i], enemyY[i], bulletX, bulletY)
         if collision:
-           #collision_Sound = mixer.Sound(file)
-            #collision_Sound.play() 
+            collision_Sound = mixer.Sound('/Users/kevinchung/KC2191/p04-kc2191/collide.wav')
+            collision_Sound.play() 
             bulletY = 480
             bullet_state = "ready"
             score_value += 1
