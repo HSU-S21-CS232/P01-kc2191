@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>All Music Tracks</title>
+</head>
+{% set even_row_color = '#FFFFFF' %}
+{% set odd_row_color = '#DFDFDF' %}
+
+<body>
+    <div>
+        <table>
+            <thead>
+                <th>Song Title</th>
+                <th>Artist</th>
+                <th>Price</th>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    {% set row_color = even_row_color if loop.index % 2 == 0 else odd_row_color %}
+                    <tr style="background-color: {{row_color}};">
+                        <td>{{row['Name']}}</td>
+                        <td>{{row['Composer']}}</td>
+                        <td>{{row['UnitPrice']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
